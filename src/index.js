@@ -1,13 +1,12 @@
 import "./style.css";
+import { getWeather } from "./api.js";
+import { getWeatherObject } from "./weather.js";
 
-async function getWeather(city) {
-    let weatherData = await fetch(
-        `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=ATUX84843BBMU7YE6AYJKDZGS`,
-    );
-
-    let weatherJson = await weatherData.json();
-
-    console.log(weatherJson.currentConditions);
+async function test() {
+    const weatherPromise = await getWeather("sda1231sda");
+    const weatherData = getWeatherObject(weatherPromise);
+    console.log(weatherData);
 }
 
-getWeather("Warsaw");
+test();
+//getWeather("Warsaw");
