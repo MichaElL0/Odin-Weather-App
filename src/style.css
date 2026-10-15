@@ -30,3 +30,10 @@ h5,
 h6 {
     overflow-wrap: break-word;
 }
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
