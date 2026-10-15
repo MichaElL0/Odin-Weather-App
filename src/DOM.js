@@ -44,3 +44,8 @@ export function bindSearch(onSearch) {
         onSearch();
     });
 }
+
+export function notFound() {
+    const parentDiv = document.querySelector(".result");
+    parentDiv.textContent = "City not found";
+}
