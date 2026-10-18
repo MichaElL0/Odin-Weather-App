@@ -8,7 +8,7 @@ export function displayWeather(weatherData) {
     parentDiv.textContent = "";
 
     const headerName = document.createElement("h1");
-    headerName.textContent = weatherData.name;
+    headerName.textContent = weatherData.name[0].toUpperCase() + weatherData.name.slice(1);
 
     const headerTemp = document.createElement("h2");
     headerTemp.textContent = weatherData.temperature + "°C";
@@ -20,7 +20,7 @@ export function displayWeather(weatherData) {
     // weatherIconImg.src = weatherData.icon;
 
     const headerFeelsTemp = document.createElement("h3");
-    headerFeelsTemp.textContent = "Feels like " + weatherData.feels;
+    headerFeelsTemp.textContent = "Feels like " + weatherData.feels + "°C";
 
     const pressure = document.createElement("p");
     pressure.textContent = "Pressure " + weatherData.pressure;
@@ -45,7 +45,7 @@ export function bindSearch(onSearch) {
     });
 }
 
-export function notFound() {
+export function notFound(text) {
     const parentDiv = document.querySelector(".result");
-    parentDiv.textContent = "City not found";
+    parentDiv.textContent = text;
 }
