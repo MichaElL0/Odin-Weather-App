@@ -11,3 +11,10 @@ export function getWeatherObject(weatherData) {
         wind: weatherData.currentConditions.windspeed,
     };
 }
+
+export function changeTempUnit(value, unit) {
+    if (unit === "F") {
+        return Math.round(value * (9 / 5) + 32);
+    }
+    return value;
+}

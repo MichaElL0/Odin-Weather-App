@@ -3,7 +3,7 @@ export function getCityData() {
     return inputCity;
 }
 
-export function displayWeather(weatherData) {
+export function displayWeather(weatherData, unit) {
     const parentDiv = document.querySelector(".result");
     parentDiv.textContent = "";
 
@@ -11,7 +11,7 @@ export function displayWeather(weatherData) {
     headerName.textContent = weatherData.name[0].toUpperCase() + weatherData.name.slice(1);
 
     const headerTemp = document.createElement("h2");
-    headerTemp.textContent = weatherData.temperature + "°C";
+    headerTemp.textContent = weatherData.temperature + unit;
 
     const conditions = document.createElement("p");
     conditions.textContent = weatherData.conditions;
@@ -20,7 +20,7 @@ export function displayWeather(weatherData) {
     // weatherIconImg.src = weatherData.icon;
 
     const headerFeelsTemp = document.createElement("h3");
-    headerFeelsTemp.textContent = "Feels like " + weatherData.feels + "°C";
+    headerFeelsTemp.textContent = "Feels like " + weatherData.feels + unit;
 
     const pressure = document.createElement("p");
     pressure.textContent = "Pressure " + weatherData.pressure;
@@ -42,6 +42,14 @@ export function bindSearch(onSearch) {
 
     button.addEventListener("click", () => {
         onSearch();
+    });
+}
+
+export function bindUnitToggle(onToggle) {
+    const button = document.querySelector("#unitBtn");
+
+    button.addEventListener("click", () => {
+        onToggle();
     });
 }
 
