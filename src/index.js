@@ -1,7 +1,7 @@
 import "./style.css";
 import { getWeather } from "./api.js";
 import { getWeatherObject, changeTempUnit } from "./weather.js";
-import { getCityData, displayWeather, bindSearch, notFound, bindUnitToggle } from "./DOM.js";
+import { getCityData, displayWeather, bindSearch, notFound, bindUnitToggle, showLoading, hideLoading } from "./DOM.js";
 
 let lastWeather;
 let lastUnit = "C";
@@ -12,6 +12,7 @@ async function handleSearch() {
         notFound("Type in city");
         return;
     }
+    showLoading();
     try {
         const rawData = await getWeather(city);
         const weather = getWeatherObject(rawData);
@@ -20,6 +21,8 @@ async function handleSearch() {
     } catch (error) {
         console.error(error);
         notFound("City not found");
+    } finally {
+        hideLoading();
     }
 }
 

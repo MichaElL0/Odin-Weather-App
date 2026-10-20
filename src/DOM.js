@@ -57,3 +57,17 @@ export function notFound(text) {
     const parentDiv = document.querySelector(".result");
     parentDiv.textContent = text;
 }
+
+export function showLoading() {
+    const loadingDiv = document.querySelector(".loading");
+    loadingDiv.classList.remove("loading-hide");
+    const button = document.querySelector("#searchButton");
+    button.disabled = true;
+}
+
+export function hideLoading() {
+    const loadingDiv = document.querySelector(".loading");
+    loadingDiv.classList.add("loading-hide");
+    const button = document.querySelector("#searchButton");
+    button.disabled = false;
+}
