@@ -53,7 +53,7 @@ export function bindUnitToggle(onToggle) {
     });
 }
 
-export function notFound(text) {
+export function showMessage(text) {
     const parentDiv = document.querySelector(".result");
     parentDiv.textContent = text;
 }

@@ -1,7 +1,15 @@
 import "./style.css";
 import { getWeather } from "./api.js";
 import { getWeatherObject, changeTempUnit } from "./weather.js";
-import { getCityData, displayWeather, bindSearch, notFound, bindUnitToggle, showLoading, hideLoading } from "./DOM.js";
+import {
+    getCityData,
+    displayWeather,
+    bindSearch,
+    showMessage,
+    bindUnitToggle,
+    showLoading,
+    hideLoading,
+} from "./DOM.js";
 
 let lastWeather;
 let lastUnit = "C";
@@ -9,7 +17,7 @@ let lastUnit = "C";
 async function handleSearch() {
     const city = getCityData().trim();
     if (city === "") {
-        notFound("Type in city");
+        showMessage("Type in city");
         return;
     }
     showLoading();
@@ -20,7 +28,7 @@ async function handleSearch() {
         showWeather();
     } catch (error) {
         console.error(error);
-        notFound("City not found");
+        showMessage("City not found");
     } finally {
         hideLoading();
     }
