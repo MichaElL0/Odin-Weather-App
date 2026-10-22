@@ -1,3 +1,5 @@
+import { weatherIcon } from "./icons.js";
+
 export function getCityData() {
     const inputCity = document.querySelector("#search").value;
     return inputCity;
@@ -16,8 +18,9 @@ export function displayWeather(weatherData, unit) {
     const conditions = document.createElement("p");
     conditions.textContent = weatherData.conditions;
 
-    // const weatherIconImg = document.createElement("img");
-    // weatherIconImg.src = weatherData.icon;
+    const weatherIconImg = document.createElement("img");
+    weatherIconImg.src = weatherIcon(weatherData.icon);
+    weatherIconImg.alt = "Weather conditions";
 
     const headerFeelsTemp = document.createElement("h3");
     headerFeelsTemp.textContent = "Feels like " + weatherData.feels + unit;
@@ -34,7 +37,17 @@ export function displayWeather(weatherData, unit) {
     const wind = document.createElement("p");
     wind.textContent = "Wind speed " + weatherData.wind;
 
-    parentDiv.append(headerName, headerTemp, conditions, headerFeelsTemp, pressure, sunRise, sunSet, wind);
+    parentDiv.append(
+        headerName,
+        headerTemp,
+        conditions,
+        weatherIconImg,
+        headerFeelsTemp,
+        pressure,
+        sunRise,
+        sunSet,
+        wind,
+    );
 }
 
 export function bindSearch(onSearch) {
