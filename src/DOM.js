@@ -10,7 +10,7 @@ export function displayWeather(weatherData, unit) {
     parentDiv.textContent = "";
 
     const headerName = document.createElement("h1");
-    headerName.textContent = weatherData.name[0].toUpperCase() + weatherData.name.slice(1);
+    headerName.textContent = weatherData.name[0].toUpperCase() + weatherData.name.slice(1).toLowerCase();
 
     const headerTemp = document.createElement("h2");
     headerTemp.textContent = weatherData.temperature + unit;

@@ -65,8 +65,8 @@ button {
     border-style: none;
     border-radius: 10px;
     font-size: 1.1em;
-    -webkit-box-shadow: 5px 2px 0px 2px #5390d9;
-    box-shadow: 5px 2px 0px 2px #5390d9;
+    -webkit-box-shadow: 3px 2px 0px 2px #5390d9;
+    box-shadow: 3px 2px 0px 2px #5390d9;
     background-color: var(--indigo-bloom);
     color: white;
     transition:
@@ -90,4 +90,27 @@ button:hover {
     display: flex;
     gap: 1rem;
     justify-content: space-around;
+}
+
+input[type="text"] {
+    padding: 0.1rem 0.3rem;
+    border-radius: 10px;
+    border: 1px solid var(--indigo-bloom);
+    background-color: var(--pastel-blue);
+    box-shadow: 3px 2px 0px 2px #5390d9;
+    transition:
+        transform 0.2s ease,
+        border 0.05s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="text"]:hover {
+    transform: scale(1.02);
+    box-shadow: none;
+}
+
+input[type="text"]:focus {
+    border: 2px solid var(--blue-energy);
+    outline: none;
+    transform: scale(1.02);
 }
