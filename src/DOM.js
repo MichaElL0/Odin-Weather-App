@@ -21,12 +21,13 @@ export function displayWeather(weatherData, unit) {
     const weatherIconImg = document.createElement("img");
     weatherIconImg.src = weatherIcon(weatherData.icon);
     weatherIconImg.alt = "Weather conditions";
+    weatherIconImg.classList.add("weather-icon");
 
     const headerFeelsTemp = document.createElement("h3");
     headerFeelsTemp.textContent = "Feels like " + weatherData.feels + unit;
 
     const pressure = document.createElement("p");
-    pressure.textContent = "Pressure " + weatherData.pressure;
+    pressure.textContent = "Pressure " + weatherData.pressure + " hPa";
 
     const sunRise = document.createElement("p");
     sunRise.textContent = "Sunrise at : " + weatherData.sunrise;
@@ -35,7 +36,7 @@ export function displayWeather(weatherData, unit) {
     sunSet.textContent = "Sunset at " + weatherData.sunset;
 
     const wind = document.createElement("p");
-    wind.textContent = "Wind speed " + weatherData.wind;
+    wind.textContent = "Wind speed " + weatherData.wind + " km/h";
 
     parentDiv.append(
         headerName,
